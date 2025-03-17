@@ -1,9 +1,6 @@
 import json
 import os
 
-def convert_rank_type(rank_type):
-    return str(int(rank_type) + 1)
-
 def convert_source_to_target(source_path, target_path):
     with open(source_path, 'r') as source_file:
         source_data = json.load(source_file)
@@ -11,11 +8,11 @@ def convert_source_to_target(source_path, target_path):
     target_data = {
         "info": {
             "export_timestamp": source_data["info"]["export_timestamp"],
-            "export_app": source_data["info"]["export_app"],
-            "export_app_version": source_data["info"]["export_app_version"],
+            "export_app": "Starward Sleepy Converter (hkrpg)",
+            "export_app_version": "v1.0",
             "version": "v4.0"
         },
-        "nap": [
+        "hkrpg": [
             {
                 "uid": source_data["info"]["uid"],
                 "timezone": source_data["info"]["region_time_zone"],
@@ -31,9 +28,10 @@ def convert_source_to_target(source_path, target_path):
             "gacha_type": item["gacha_type"],
             "item_id": item["item_id"],
             "time": item["time"],
-            "rank_type": convert_rank_type(item["rank_type"])
+            "rank_type": item["rank_type"],
+            "gacha_id": item["gacha_id"]
         }
-        target_data["nap"][0]["list"].append(target_item)
+        target_data["hkrpg"][0]["list"].append(target_item)
 
     source_filename = os.path.splitext(os.path.basename(source_path))[0]
     target_filename = f"UIGFv4_{source_filename}.json"
