@@ -1,5 +1,8 @@
 # Starward Gacha Log to UIGF v4.0 conversion
 
+> [!IMPORTANT]  
+> Starward now Supports UIGF v4.0 export with Multi-game Log export in a single file. This repository is archived.
+
 These are simple Python scripts that convert [Starward](https://github.com/Scighost/Starward)'s Gacha Log to UIGFv4 schema for easy importing to other services like [Hoyo Buddy](https://github.com/seriaati/hoyo-buddy).
 
 Following Format Supported:
@@ -14,3 +17,4 @@ Open a terminal in the current folder path and run this command:
 ```python convert_{game}.py```
 
 Follow the instruction to convert the file.
+Starward-gacha-log-to-UIGFv4
